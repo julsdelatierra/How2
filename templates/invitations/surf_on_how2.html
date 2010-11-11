@@ -1,0 +1,21 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<div class="column span-22">
+    <ul class="people_menu">
+        <li><a href="/invitations/find_on_how2/">Find on how2</a></li>
+        <li><a href="/invitations/invite_by_email">Invite by email</a></li>
+        <li><a href="/invitations/email_contacts">Email contacts</a></li>
+        <li><a href="/invitations/surf_on_how2" class="selected">Surf on categories</a></li>
+    </ul>
+</div>
+<div id="people_on_how2" class="column span-23 hcontent">
+    <ul id="id" class="column span-5 first vertical_pane">
+    {%for c in categories%}
+        <li><a href="/howto/browser_users/{{c.id}}">{{c.name}}</a></li>
+    {%endfor%}
+    </ul>
+    <div id="users_on_categorie" class="column span-17 last">
+    </div>
+</div>
+{%endblock%}

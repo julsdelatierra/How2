@@ -1,0 +1,51 @@
+{%extends 'main.html'%}
+
+{%block content%}
+    <div id="view" class="column span-24">
+        <label for="languages">Which language do you want to read this how2?</label>
+        <select id="id_lang" name="lang" howto="{{how2.id}}">
+            {%for l in languages%}
+                <option value="{{l.id}}">{{l.name}}</option>
+            {%endfor%}
+        </select>
+        <p id="how2_title">{{how2.title}}</p>
+        <p>por: {{how2.author}}</p>
+        <p ><div id="how2_content" class="column span-22 prepend-1 append-1">{{how2.content|safe}}</div></p>
+        {%if owner and user.is_authenticated%}
+            <p><a  href="/howto/edit/{{how2.id}}">Editar</a></p>
+        {%else%}
+                {%if can_vote%}
+                    <div id="rating">
+                        <img src="/medios/img/star.jpeg" class="star_vote" action="/vote/{{how2.id}}/1/" />
+                        <img src="/medios/img/star.jpeg" class="star_vote" action="/vote/{{how2.id}}/2/" />
+                        <img src="/medios/img/star.jpeg" class="star_vote" action="/vote/{{how2.id}}/3/" />
+                        <img src="/medios/img/star.jpeg" class="star_vote" action="/vote/{{how2.id}}/4/" />
+                        <img src="/medios/img/star.jpeg" class="star_vote" action="/vote/{{how2.id}}/5/" />
+                    </div>
+                {%endif%}
+                {%if not selected%}
+                    <form method="post" action=".">
+                        <input type="submit" name="select" value="Seleccionar" class="button">
+                    </form>
+                {%endif%}
+                <script type="application/x-javascript">
+                    tiny();
+                </script>
+                <input type="button" id="suggest_how2_button" class="button" value="Suggest"/>
+                <div id="suggest_how2" style="display:none;" class="hcontent">
+                    <p>Nueva sugerencia</p>
+                    <form method="post" action=".">
+                        <textarea name="suggestion" cols="45" rows="15"></textarea>
+                        <input type="submit" value="Save"/>
+                    </form>
+                </div>
+                <div class="clear"></div>
+                <div class="suggestion">
+                    {%for s in suggestions%}
+                        {{s.author}}:
+                        {{s.suggestion|safe}}
+                    {%endfor%}
+                </div>
+        {%endif%}
+    </div>
+{%endblock%}

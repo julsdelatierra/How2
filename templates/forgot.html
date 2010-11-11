@@ -1,0 +1,11 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<div id="forgot">
+    <form method="post" action=".">
+        {% csrf_token %}
+        <label for="user">Username or Email </label><input type="text" name="user">
+        <input type="submit" value="Enviar">
+    </form>
+</div>
+{%endblock%}

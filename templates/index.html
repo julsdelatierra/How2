@@ -1,0 +1,62 @@
+{%extends 'main.html'%}
+
+{%block content%}
+    {%if not empty%}
+        {%if orig_res or trans_res%}
+        Originals
+        <table>
+                {%for o in orig_res%}
+                    <tr>
+                        <td><a class="how2" href="/howto/view/{{o.id}}">{{o.title}}</a></td>
+                    </tr>
+                {%endfor%}
+        </table>
+        Translations
+        <table>
+                {%for t in trans_res%}
+                    <tr>
+                        <td><a class="how2" href="/howto/view/{{t.id}}">{{t.title}}</a></td>
+                    </tr>
+                {%endfor%}
+        </table>
+        {%else%}
+                <p class="emtpy">No results</p>
+        {%endif%}
+    {%else%}
+        <div id="messages" class="column span-24">
+            <h1>Welcome to How2!</h1>
+            <p>Why i want to use How2?</p>
+            <p>
+                How2 is an idea to create a site where you can find answers written
+                by another person, when you ask the classicly question "How to ... ?".
+                We don't know, maybe anything professional or just cotidian.
+            </p>
+            <p>
+                But the idea is than all that would be here =D in How2 and you won't be
+                searching hours and hours in google, just pick on a category and begin or
+                write keywords on the search field and get the procedure to do that. Thanks
+            </p>
+        </div>
+        <div class="clear"></div>
+        <div id="quick_tips" class="column span-11 append-1 first">
+            <h2>Tips</h2>
+            <p>
+                Please when you'll write a how2, begin the answer with the word how on
+                your language of course (for example: como, come, how, etc).
+                Please use accent and all the simbols in your native language.
+            </p>
+        </div>
+        <div id="how2_suggested" class="column span-11 prepend-1 last">
+            <h2>Comunity's Requestions</h2>
+            <div id="how2_suggested_content">
+                {%for h in h2c%}
+                        <p>{{h.title}} por {{h.asker}}</p>
+                {%endfor%}
+            </div>
+        </div>
+        <div class="clear"></div>
+        <div id="categories" class="column span-24">
+            <h2>Categorias</h2>
+        </div>
+    {%endif%}
+{%endblock%}

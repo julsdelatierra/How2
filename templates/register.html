@@ -1,0 +1,18 @@
+{%extends 'main.html'%}
+{%block content%}
+<div id="register">
+    <div id="form_error" class="error" style="display:none;">Llena todos los campos</div>
+    <div id="email_error" class="error" style="display:none;">Correo electrónico invalido</div>
+    <form method="post" action=".">
+        {% csrf_token %}
+        <table>
+            {{register_form.as_table}}
+        </table>
+        <div id="u_notice" class="notice" style="display:none;">Nombre de usuario disponible</div>
+        <div id="u_error" class="error" style="display:none;">Nombre de usuario no disponible</div>
+        <div id="e_notice" class="notice" style="display:none;">Correo electr&oacute;nico disponible</div>
+        <div id="e_error" class="error" style="display:none;">Correo electr&oacute;nico no disponible</div>
+        <input type="submit" value="Registrar">
+    </form>
+</div>
+{%endblock%}

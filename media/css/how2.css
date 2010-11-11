@@ -1,0 +1,243 @@
+/*Tags*/
+body{
+    background: #95b8d4;
+}
+a{
+    cursor: pointer;
+    color: #006ebb;
+    padding: 2px;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+}
+a:visited{
+    color: #006ebb;
+}
+/*IDs*/
+#content{
+    background: white;
+    -moz-border-radius: 0 0 10px 10px;
+    -webkit-border-radius: 0 0 10px 10px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}
+#content input:focus{
+    border: 1px red solid;
+}
+#content textarea{
+    width: 250px;
+    height: 100px;
+}
+#content textarea:focus{
+    border: 1px red solid;
+}
+#content input,textarea,select{
+    padding: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 1px #95b8d4 solid;
+}
+#footer{
+    text-align: center;
+    background: white;
+    padding-top: 10px;
+    height: 30px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+#users{
+    color: black;
+}
+#tabuser{
+    font-size: 10pt;
+    height: 70px;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    background: white;
+}
+#usermenu{
+    background: white;
+    height: 30px;
+    padding-top:10px;
+    margin-top: 10px;
+    text-align: center;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+#usermenu a{
+    margin-left: 20px;
+    margin-right: 20px;
+}
+#my_how2s_title{
+    height:40px;
+}
+#my_how2s_actions{
+    height: 30px;
+    padding-top: 10px;
+    text-align: right;
+}
+#new_how2 textarea,#edit_how2 textarea{
+    width: 750px;
+    height: 300px;
+}
+#new_how2 #id_title ,#edit_how2 #id_title{
+    width: 750px;
+}
+#login{
+    font-size: large;
+}
+#login input{
+    font-size: large;
+}
+#profile{
+    font-size: large;
+}
+#profile input, textarea{
+    font-size: large;
+}
+#register{
+    font-size: large;
+}
+#register input{
+    font-size: large;
+}
+#forgot{
+    font-size: large;
+}
+#forgot input{
+    font-size: large;
+}
+#searcher{
+    text-align: right;
+    height: 40px;
+    padding-top: 10px;
+}
+#searcher input:focus{
+    border: 1px orange solid;
+}
+#header{
+    height:50px;
+}
+#header #logo{
+    text-align: left;
+    height: 50px;
+}
+#nousermenu a{
+    padding: 10px;
+    background: white;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+}
+#howtos_list{
+    height: 400px;
+    overflow: auto;
+}
+#emergent{
+    width: 500px;
+    height: 450px;
+    border: 10px blue solid;
+}
+#emergent a.modalCloseImg {
+	background:url(../img/x.png) no-repeat; /* adjust url as required */
+	width:25px;
+	height:29px;
+	display:inline;
+	z-index:3200;
+	position:absolute;
+	top:0px;
+	right:0px;
+	cursor:pointer;
+}
+
+/*Classes*/
+.user_data{
+    
+}
+.tab{
+    background: url('../img/tab_bg.png');
+    height: 130px;
+    text-align: center;
+    margin-bottom: 10px;
+    -moz-border-radius: 10px 10px 0 0;
+    -webkit-border-radius: 10px 10px 0 0;
+    padding: 5px 0 5px 0;
+}
+.tabtitle{
+    height: 10px;
+}
+.tabcontent{
+    height: 100px;
+    overflow: auto;
+}
+.hcontent{
+    background: #fbff9f;
+    padding: 10px 0 10px 50px;
+}
+a.how2{
+    color: #006ebb;
+}
+a:hover.how2{
+    background: #006ebb;
+    color: white;
+}
+.button{
+    background: #eee;
+    border: 1px;
+    padding: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border: 0;
+}
+.button:hover{
+    background: #ddd;
+}
+.star_vote{
+    color: red;
+}
+ul.people_menu{
+    list-style: none;
+    padding: 0;
+    border: 0;
+}
+ul.people_menu a{
+    display: block;
+    padding: 10px;
+    background: #fdffc5;
+    text-decoration: none;
+}
+ul.people_menu a:hover{
+    background: #f6ff40;
+}
+ul.people_menu li{
+    float:left;
+}
+ul.people_menu a.selected{
+    background: #fbff9f;
+}
+ul.vertical_pane{
+    background: #333;
+    list-style: none;
+    border: 0;
+    padding: 0;
+}
+ul.vertical_pane a{
+    text-decoration: none;
+    color: white;
+    display: block;
+}
+ul.vertical_pane a:hover{
+    color: #fbff9f;
+    background: #aaa;
+}
+.empty{
+    font-weight: bold;
+    background: #ccc;
+    text-align: center;
+    color: white;
+}
+.contacts{
+    background: white;
+    border: 2px #ccc solid;
+    height: 80px;
+}

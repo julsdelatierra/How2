@@ -1,0 +1,17 @@
+{%extends 'main.html'%}
+{%block content%}
+<div id="login">
+    <form action='.' method='post'>
+        {% csrf_token %}
+        <label for="username">Username o Email:</label>
+        <input type="text" name="id" value="" id="id">
+        <label for="password">Password:</label>
+        <input type="password" name="password" value="" id="password">
+        <input type="submit" value="acceder" class="button"/>
+    </form>
+    <a href="/accounts/forgot">¿Olvidaste tu password?</a>
+</div>
+<script type="application/x-javascript">
+    
+</script>
+{%endblock%}

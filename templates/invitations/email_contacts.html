@@ -1,0 +1,21 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<div class="column span-22">
+    <ul class="people_menu">
+        <li><a href="/invitations/find_on_how2/">Find on how2</a></li>
+        <li><a href="/invitations/invite_by_email">Invite by email</a></li>
+        <li><a href="/invitations/email_contacts" class="selected">Email contacts</a></li>
+    </ul>
+</div>
+<div id="people_on_how2" class="column span-16 hcontent">
+    <p>If you want, we can surf on your email, extract contacts and send invitations. We don't save any information about your email account.</p>
+    <form method="post" action=".">
+        <table>
+        <tr><td><label for="email">Email </label></td><td><input type="text" name="email" /></td></tr>
+        <tr><td><label for="password">Password </label></td><td><input type="password" name="password" /></td></tr>
+        </table>
+        <input type="submit" value="send" />
+    </form>
+</div>
+{%endblock%}

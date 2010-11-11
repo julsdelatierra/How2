@@ -1,0 +1,17 @@
+{%extends 'main.html'%}
+{%block content%}
+<script type="application/x-javascript">
+    tiny();
+</script>
+<h1>Nuevo How2</h1>
+<div id="new_how2" class="hcontent">
+    <form method="post" action=".">
+        {% csrf_token %}
+        <table>
+            {{new_how2_form.as_table}}
+        </table>
+        <input type="submit" value="Save" />
+        <input type="button" value="Cancel" />
+    </form>
+</div>
+{%endblock%}

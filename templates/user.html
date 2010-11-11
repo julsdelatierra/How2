@@ -1,0 +1,36 @@
+{%extends 'main.html'%}
+
+{%block users%}
+    <div id="tabuser" class="column span-12 prepend-1 pull-1">
+        <div class="column span-3 first"><img src="/medios/{{profile.image}}"></div>
+        <div class="column span-8 last">
+            {{user_data.username}}, {{u_sgs}} suggestions, {{u_h2s}} how2s, {{u_qa}}%, {{u_rds}} readers,{{u_wrs}} writers
+        </div>
+        <div class="clear"></div>
+        {%if user.is_authenticated and not owner%}
+            {%if can_read%}
+                <input id="read_button" type="button" value="Read" action="/read/{{user_data.username}}" />
+            {%else%}
+                <input type="button" value="Reading" disabled="True" />
+            {%endif%}
+        {%else%}
+            <h3>Oh! It's You!</h3>
+        {%endif%}
+    </div>
+    {%if user.is_authenticated%}
+        <div id="usermenu" class="column span-12 last push-1">
+            {%for m in user_menu%}
+                <a id="{{m.text}}" href="{{m.link}}">{{m.text}}</a>
+            {%endfor%}
+        </div>
+    {%endif%}
+{%endblock%}
+{%block content%}
+    <div class="span-24">
+        <div id="how2s_data">
+            {%for h in howtos%}
+                <p><a href="/howto/view/{{h.id}}">{{h.title}}</a></p>
+            {%endfor%}
+        </div>
+    </div>
+{%endblock%}

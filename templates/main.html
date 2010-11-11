@@ -1,0 +1,46 @@
+{%extends 'base.html'%}
+{%block title%}
+    {{ws_name}} | {{ws_slogan}}
+{%endblock%}
+
+{%block header%}
+    <div id="logo" class="column span-5">
+        <a href="/"><img src="/medios/img/{{ws_logo}}" /></a>
+    </div>
+{%endblock%}
+
+{%block searcher%}
+        <form class="searcher" method="post" action="/">
+            <input type="text" name="word" size="40" />
+            <input class="button" value="Buscar" type="submit" />
+        </form>
+{%endblock%}
+
+{%block users%}
+    {%if user.is_authenticated%}
+        <div id="tabuser" class="column span-12 first prepend-1 pull-1">
+            <div class="column span-3 first"><img src="/medios/{{avatar}}"></div>
+            <div class="column span-8 last">
+                {{welcome}} {{user.username}},
+                <a href="/{{user.username}}">{{h2s}} how2s</a>
+                <a href="/users/readers/">{{rds}} readers</a>
+                <a href="/users/writers/">{{wts}} writers</a>
+            </div>
+        </div>
+        <div id="usermenu" class="column span-12 last push-1">
+            {%for m in user_menu%}
+                <a id="{{m.text}}" href="{{m.link}}">{{m.text}}</a>
+            {%endfor%}
+        </div>
+    {%else%}
+        <div id="nousermenu" class="column span-24 pull-1">
+            {%for n in no_user_menu%}
+                <a href="{{n.link}}">{{n.text}}</a>
+            {%endfor%}
+        </div>
+    {%endif%}
+{%endblock%}
+
+{%block footer%}
+    <p>By <a href="{{ws_footer_link}}" target="_blank">{{ws_footer_content}}</a></p>
+{%endblock%}

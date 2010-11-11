@@ -1,0 +1,23 @@
+{%extends 'main.html'%}
+
+{%block content%}
+    <script type="application/x-javascript">
+        tiny();
+    </script>
+    <table id="suggestion_to_attend">
+            <tr>
+                <td>{{suggestion.author}}</td>
+                <td>{{suggestion.date}}</td>
+                <td>{{suggestion.suggestion|safe}}</td>
+            </tr>
+    </table>
+    <div id="attending_suggestion" class="hcontent">
+        <form method="post" action=".">
+            {% csrf_token %}
+            <table>
+                {{how2_form.as_table}}
+            </table>
+            <input type="submit" value="Save" />
+        </form>
+    </div>
+{%endblock%}

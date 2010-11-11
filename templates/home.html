@@ -1,0 +1,107 @@
+{%extends 'main.html'%}
+
+{%block content%}
+    <script type="application/x-javascript">
+        tiny();
+    </script>
+    <div id="how2_section" class="column span-24">
+        <div id="selected" class="column span-12 tab">
+            <h3 class="tabtitle">My selected how2s</h3>
+            <div class="tabcontent">
+                {%for s in selected%}
+                    <p><a class="how2" href="/howto/view/{{s.how2.id}}">{{s.how2.title}} en {{s.how2.category.name}}</a> por <a href="/{{s.how2.author}}">{{s.how2.author}}</a> | <a href="/howto/unselect/{{s.id}}"><img src="/medios/img/delete.png" alt="unselect this"></a></p>
+                {%endfor%}
+            </div>
+        </div>
+        <div id="suggestions" class="column span-12 last tab">
+            <h3 class="tabtitle">Suggestions</h3>
+            <div class="tabcontent">
+                {%for s in suggestions%}
+                    <p><a href="/howto/suggestion/{{s.how2.id}}/{{s.id}}">Sugerencia en {{s.how2.title}} por {{s.author}} el {{s.date}}</a></p>
+                {%endfor%}
+            </div>
+        </div>
+        <div id="how2_main" class="column span-24">
+            <div id="my_how2s_title" class="column span-12 first">
+                <h1>Mis how2s</h1>
+            </div>
+            <div id="my_how2s_actions" class="column span-12 last">
+                <a href="/howto/new/">Nuevo How2</a>
+                <input type="button" id="contribute_how2_button" class="button" value="Sugerir how2" />
+                <input type="button" id="contribute_category_button" class="button" value="Sugerir categoria" />
+            </div>
+            <div class="clear"></div>
+            <div id="notice_ch2" class="notice" style="display:none;">Tu sugerencia de How2 ha sido publicada, para que la comunidad revise</div>
+            <div id="notice_cc" class="notice" style="display: none;">Tu sugerencia de Categoría será revisada</div>
+            <div id="error" class="error" style="display:none;">Debes llenar todos los campos</div>
+            <div id="my_how2s" class="column span-24">
+                <div id="contribute_how2" style="display:none;" class="hcontent">
+                    <h5>Escribe el titulo y una breve descripcion, que explique el tema a tratar</h5>
+                    <form id="ch2" method="post" action="/contribute/how2/">
+                        {% csrf_token %}
+                        <table>
+                            <tr>
+                                <td><input type="text" name="title" id="title_contribute_how2" value="Title" /></td>
+                            </tr>
+                            <tr>
+                                <td><textarea name="description" id="description_contribute_how2" cols="45" rows="5"></textarea></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <select name="mode_ask" id="mode_ask">
+                                        <option value="0"> Public </option>
+                                        <option value="1"> Private </option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td id="ask_to_hidden" style="display:none;">
+                                    <select name="writer_to_ask">
+                                        <option value="default">Elije...</option>
+                                        {%for w in writers%}
+                                            <option value="{{w.writer}}">{{w.writer}}</option>
+                                        {%endfor%}
+                                    </select>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" name="enviar" value="Enviar" class="button" />
+                    </form>
+                </div>
+                <div id="contribute_category" style="display:none;" class="hcontent">
+                    <h5>Sugerencia de categoria</h5>
+                    <form id="cc" method="post" action="/contribute/category/">
+                        {% csrf_token %}
+                        <table>
+                            {{category_form.as_table}}
+                        </table>
+                        <input type="submit" name="enviar" value="Enviar" class="button"/>
+                    </form>
+                </div>
+                <div id="howtos_list">
+                    <table>
+                        <tr>
+                            <th>Title</th>
+                            <th>Date</th>
+                            <th>Category</th>
+                            <th>Rating</th>
+                        </tr>
+                    {%if how2_list%}
+                        {%for h in how2_list%}
+                        <tr>
+                            <td><a class="how2" href="/howto/view/{{h.id}}">{{h.title}}</a></td>
+                            <td>{{h.date}}</td>
+                            <td>{{h.category}}</td>
+                            <td>{{h.rating}}</td>
+                        </tr>
+                        {%endfor%}
+                    </table>
+                    {%else%}
+                    </table>
+                    <p class="empty">No one how2</p>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </div>
+{%endblock%}

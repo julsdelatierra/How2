@@ -1,0 +1,20 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<div class="column span-22">
+    <ul class="people_menu">
+        <li><a href="/invitations/find_on_how2/">Find on how2</a></li>
+        <li><a href="/invitations/invite_by_email" class="selected">Invite by email</a></li>
+        <li><a href="/invitations/email_contacts">Email contacts</a></li>
+    </ul>
+</div>
+<div id="people_on_how2" class="column span-16 hcontent">
+    <p>Invite people to use How2, by email, put the email accounts separated by a comma</p>
+    <form method="post" action=".">
+        <table>
+            <tr><td><textarea name="emails" cols="45" rows="15"></textarea></td></tr>
+            <tr><td><input type="submit" value="Invite" /></td></tr>
+        </table>
+    </form>
+</div>
+{%endblock%}

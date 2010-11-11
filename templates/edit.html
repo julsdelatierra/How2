@@ -1,0 +1,18 @@
+{%extends 'view.html'%}
+
+{%block content%}
+    <script type="application/x-javascript">
+        tiny();
+    </script>
+    <h1>Edicion de How2</h1>
+    <div id="edit_how2" class="hcontent">
+        <form method="post" action=".">
+            {% csrf_token %}
+            <table>
+                {{how2_form.as_table}}
+            </table>
+            <input type="submit" value="Guardar" />
+            <input type="button" value="Cancel">
+        </form>
+    </div>
+{%endblock%}

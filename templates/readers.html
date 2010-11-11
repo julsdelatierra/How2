@@ -1,0 +1,9 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<div class="user_data">
+    {%for r in readers%}
+        <p>{{r.reader}}</p>
+    {%endfor%}
+</div>
+{%endblock%}

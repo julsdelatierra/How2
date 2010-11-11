@@ -1,0 +1,9 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<div class="user_data">
+    {%for w in writers%}
+        <p>{{w.writer}}</p>
+    {%endfor%}
+</div>
+{%endblock%}

@@ -1,0 +1,24 @@
+{%extends 'main.html'%}
+
+{%block content%}
+<div class="column span-22">
+    <ul class="people_menu">
+        <li><a href="/invitations/find_on_how2/" class="selected">Find on how2</a></li>
+        <li><a href="/invitations/invite_by_email">Invite by email</a></li>
+        <li><a href="/invitations/email_contacts">Email contacts</a></li>
+    </ul>
+</div>
+<div id="people_on_how2" class="column span-16 hcontent">
+    <p>You can find people that already have a how2 account</p>
+    <form method="post" action=".">
+        <input type="text" name="word" />
+        <input type="submit" value="search" />
+    </form>
+    {%for p in people%}
+            <p class="column span-10 contacts">
+                <img src="/medios/{{p.image}}" />
+                <a href="/{{p.user.username}}">{{p.user.username}}</a>
+            </p>
+    {%endfor%}
+</div>
+{%endblock%}
